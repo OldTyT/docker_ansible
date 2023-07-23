@@ -1,6 +1,7 @@
 #!/bin/bash
 
-echo "$SSH_PRIVATE_KEY"|base64 -d > /root/.ssh/id_rsa
+echo "$SSH_KEY_PRIVATE"|base64 -d > /root/.ssh/id_rsa
+chmod 600 /root/.ssh/id_rsa
 
 if [ "$TYPE" = "diff" ]; then
     ansible-playbook --diff -i ./inventory.yml playbook.yml && exit
