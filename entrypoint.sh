@@ -7,7 +7,7 @@ if [ "$TYPE" = "diff" ]; then
     ansible-playbook --diff -i ./inventory.yml playbook.yml && exit
 fi
 if [ "$TYPE" = "test" ]; then
-    py.test -v --color=yes --hosts=all --ansible-inventory=inventory.yml --connection=ansible  testinfra_all.py && exit
+    python3 /tester.py | bash && exit
 fi
 if [ "$TYPE" = "play" ]; then
     ansible-playbook -i ./inventory.yml playbook.yml && exit

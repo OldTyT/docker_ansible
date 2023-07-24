@@ -4,6 +4,7 @@ ENV TYPE="diff" \
     ANSIBLE_HOST_KEY_CHECKING="False"
 
 COPY entrypoint.sh /entrypoint.sh
+COPY tester.py /tester.py
 
 RUN apt update && \
     apt install -y openssh-client && \
