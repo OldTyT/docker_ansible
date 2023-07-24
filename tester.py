@@ -17,7 +17,7 @@ def get_tests_cmd(hosts: list) -> list:
     cmd_list = []
     for host in hosts:
         cmd_list.append(f"test -f testinfra_{host}.py && printf '\033[0;32m\n{separator}\nTesting: {host}\n{separator}\n\033[0m\n' && py.test -v --color=yes --hosts={host} --ansible-inventory=inventory.yml --connection=ansible  testinfra_{host}.py || printf '\033[0;33m\n{separator}\nWarning!\nNot found test for: {host}\n{separator}\033[0m\n'")
-    if os.getenv("TEST_ALL") != "False":
+    if os.getenv("TEST_ALL_DISABLED") != "True":
         cmd_list.append(f"printf '\033[0;32m\n{separator}\nTesting: all\n{separator}\n\033[0m\n' && py.test -v --color=yes --hosts=all --ansible-inventory=inventory.yml --connection=ansible  testinfra_all.py")
     return cmd_list
 
