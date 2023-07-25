@@ -9,6 +9,8 @@ Docker image for play ansible playbooks in pipeline and testing with testinfra
 |`TYPE`|`diff`|Type launch(diff, play or test)|
 |`SSH_KEY_PRIVATE`|`""`|SSH private key encrypted with base64|
 |`TEST_ALL_DISABLED`|`""`|Disabled all tests if setup `True`|
+|`WORKER_NODES_LIST`|`""`|Launch test for node worker, ex: `host1,host2`|
+|`MASTER_NODES_LIST`|`""`|Launch test for node master, ex: `host1,host2`|
 
 ## Example Gitlab CI
 
