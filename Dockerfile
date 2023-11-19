@@ -3,7 +3,7 @@ FROM python:3.10.6-slim-bullseye
 ENV TYPE="diff" \
     ANSIBLE_HOST_KEY_CHECKING="False"
 
-COPY entrypoint.sh /entrypoint.sh
+COPY entrypoint.sh /usr/local/bin/
 COPY tester.py /tester.py
 
 RUN apt update && \
@@ -15,4 +15,4 @@ RUN apt update && \
 
 COPY ssh_config /etc/ssh/
 
-ENTRYPOINT ['/entrypoint.sh']
+ENTRYPOINT ["entrypoint.sh"]
