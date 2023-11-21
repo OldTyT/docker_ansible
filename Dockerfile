@@ -8,7 +8,7 @@ COPY tester.py /tester.py
 
 RUN apt update && \
     apt install -y openssh-client git && \
-    python3 -m pip --no-cache-dir install ansible-core==2.15.2 ansible-compat==4.1.5 testinfra==6.0.0 && \
+    python3 -m pip --no-cache-dir install ansible-core==2.15.2 ansible-compat==4.1.5 testinfra==6.0.0 ansible-lint==6.22.0 && \
     rm -rf /var/lib/apt/lists/* && \
     mkdir /root/.ssh && \
     ansible-galaxy collection install community.general ansible.posix
