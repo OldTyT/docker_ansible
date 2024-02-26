@@ -11,7 +11,7 @@ RUN apt update && \
     python3 -m pip --no-cache-dir install ansible-core==2.15.2 ansible-compat==4.1.5 testinfra==6.0.0 ansible-lint==6.18.0 && \
     rm -rf /var/lib/apt/lists/* && \
     mkdir /root/.ssh && \
-    ansible-galaxy collection install community.general community.docker ansible.posix kubernetes.core
+    ansible-galaxy collection install community.general community.docker ansible.posix community.kubernetes
 
 COPY ssh_config /etc/ssh/
 
