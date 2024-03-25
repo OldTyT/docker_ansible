@@ -5,7 +5,7 @@ chmod 600 /root/.ssh/id_rsa
 test -f requirements.yml && ansible-galaxy install -r requirements.yml
 
 if [ "$TYPE" = "lint" ]; then
-    ansible-lint && exit
+    ansible-lint --nocolor && exit
 fi
 if [ "$TYPE" = "diff" ]; then
     ansible-playbook --check --diff -i ./inventory.yml playbook.yml && exit
